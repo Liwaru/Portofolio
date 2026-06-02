@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Portfolio') }}</title>
+        <title><?php echo e(config('app.name', 'Portfolio')); ?></title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
 
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
+        <?php if(file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot'))): ?>
+            <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
+        <?php else: ?>
             <style>
                 body {
                     margin: 0;
@@ -585,7 +585,7 @@
                     }
                 }
             </style>
-        @endif
+        <?php endif; ?>
     </head>
     <body class="portfolio-page" id="home">
         <header class="topbar">
@@ -610,7 +610,7 @@
 
                 <div class="hero-visual">
                     <div class="profile-frame">
-                        <img class="profile-photo" src="{{ asset('images/Hendrik Huang.png') }}" alt="Hendrik Huang">
+                        <img class="profile-photo" src="<?php echo e(asset('images/Hendrik Huang.png')); ?>" alt="Hendrik Huang">
                     </div>
                 </div>
             </section>
@@ -627,13 +627,13 @@
                         tabindex="0"
                         data-project-title="InfraSPH"
                         data-project-description="Sistem manajemen infrastruktur sekolah yang membantu pengelolaan fasilitas, aset, dan data sarana secara lebih rapi dan efisien."
-                        data-project-image="{{ asset('images/InfraSPH.jfif') }}"
+                        data-project-image="<?php echo e(asset('images/InfraSPH.jfif')); ?>"
                         data-project-image-alt="InfraSPH"
                         data-project-tags="Laravel, MySQL"
                         data-project-url="https://infrasph.hendrik.rplkodingan.com/"
                     >
                         <div class="project-thumb infrasph">
-                            <img class="infrasph-logo" src="{{ asset('images/InfraSPH.jfif') }}" alt="InfraSPH">
+                            <img class="infrasph-logo" src="<?php echo e(asset('images/InfraSPH.jfif')); ?>" alt="InfraSPH">
                         </div>
                         <div class="project-content">
                             <p class="project-category">Web System</p>
@@ -651,13 +651,13 @@
                         tabindex="0"
                         data-project-title="GoFutsal"
                         data-project-description="Sistem informasi reservasi lapangan futsal yang memudahkan pengguna melihat jadwal, melakukan booking, dan mengelola pembayaran."
-                        data-project-image="{{ asset('images/GoFutsal.webp') }}"
+                        data-project-image="<?php echo e(asset('images/GoFutsal.webp')); ?>"
                         data-project-image-alt="GoFutsal"
                         data-project-tags="Laravel, Booking, Payment"
                         data-project-url="https://gofutsal.hendrik.rplkodingan.com/"
                     >
                         <div class="project-thumb gofutsal">
-                            <img class="gofutsal-logo" src="{{ asset('images/GoFutsal.webp') }}" alt="GoFutsal">
+                            <img class="gofutsal-logo" src="<?php echo e(asset('images/GoFutsal.webp')); ?>" alt="GoFutsal">
                         </div>
                         <div class="project-content">
                             <p class="project-category">Web Project</p>
@@ -676,13 +676,13 @@
                         tabindex="0"
                         data-project-title="AbsensiKu"
                         data-project-description="Sistem informasi absensi karyawan yang membantu pencatatan kehadiran menjadi lebih praktis, rapi, dan mudah dikelola."
-                        data-project-image="{{ asset('images/Absensiku.jpg') }}"
+                        data-project-image="<?php echo e(asset('images/Absensiku.jpg')); ?>"
                         data-project-image-alt="AbsensiKu"
                         data-project-tags="Laravel, Attendance System"
                         data-project-url="https://absensiku.hendrik.rplkodingan.com/"
                     >
                         <div class="project-thumb absensiku">
-                            <img class="absensiku-logo" src="{{ asset('images/Absensiku.jpg') }}" alt="AbsensiKu">
+                            <img class="absensiku-logo" src="<?php echo e(asset('images/Absensiku.jpg')); ?>" alt="AbsensiKu">
                         </div>
                         <div class="project-content">
                             <p class="project-category">Web System</p>
@@ -856,3 +856,4 @@
 
     </body>
 </html>
+<?php /**PATH C:\Users\Hendra Huang\Documents\new laravel\Portfolio\resources\views/portfolio.blade.php ENDPATH**/ ?>
